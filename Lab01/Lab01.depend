@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1584205420 source:d:\north south university\4th semester\cse225.1l\lab01\main.cpp
+	<iostream>
+
+1645984719 source:d:\north south university\4th semester\cse225.1l\lab01\task01.cpp
+	<iostream>
+
+1645985073 source:d:\north south university\4th semester\cse225.1l\lab01\declarationfile.cpp
+	"declarationFile.h"
+	<iostream>
+
+1645818498 d:\north south university\4th semester\cse225.1l\lab01\declarationfile.h
+
+1645985279 source:c:\users\user-gt\desktop\task02.cpp
+	<iostream>
+

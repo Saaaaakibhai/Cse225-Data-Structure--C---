@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1646067113 source:d:\north south university\4th semester\cse225.1l\lab01\new folder\arraydemo\arrayclass.cpp
+	<bits/stdc++.h>
+
+1646067020 source:d:\north south university\4th semester\cse225.1l\lab01\new folder\arraydemo\main.cpp
+	"declarationFile.h"
+	<iostream>
+
+1646067308 d:\north south university\4th semester\cse225.1l\lab01\new folder\arraydemo\declarationfile.h
+
