@@ -1,32 +1,27 @@
+#include "complex.h"
+
 #include <iostream>
-#include "DynArr.h"
-//#include "DynArr.cpp"
-
 using namespace std;
-int main() {
-    cout<<"enter 3*3 number"<<endl;
-    DynArr arr(3,3);
 
-    // read data
+int main()
+{
+    Complex c1(6,8);
+    Complex c2(2,4);
 
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 3; ++j) {
-            int x;
-            cin>>x;
+    Complex sum = c1+c2;
+    Complex sub = c1-c2;
+    Complex mul = c1*c2;
 
-            arr.setValue(i,j,x);
-        }
-    }
+    bool isEqual = (c1==c2);
+    bool isNotEqual = (c1!=c2);
 
-    //print data
+    //output
+    cout << "Summation: "; sum.Print();
+    cout << "Subtraction: "; sub.Print();
+    cout << "Multiplication: "; mul.Print();
 
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 3; ++j) {
-            cout<<arr.getValue(i,j)<<" ";
-        }
-        cout<<endl;
-    }
-
+    cout << "\nEqual: " << isEqual << endl;
+    cout << "Not Equal: " << isNotEqual << endl;
 
     return 0;
 }

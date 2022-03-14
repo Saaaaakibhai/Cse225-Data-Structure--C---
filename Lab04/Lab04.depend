@@ -1,6 +1,18 @@
 # depslib dependency file v1.0
-1646501220 source:d:\north south university\4th semester\cse225.1l\lab04\unsortedtype.cpp
+1646503844 source:d:\north south university\4th semester\cse225.1l\lab04\unsortedtype.cpp
 	"UnsortedType.h"
 
-1646502808 d:\north south university\4th semester\cse225.1l\lab04\unsortedtype.h
+1646503844 d:\north south university\4th semester\cse225.1l\lab04\unsortedtype.h
+
+1646505817 source:d:\north south university\4th semester\cse225.1l\lab04\main.cpp
+	<iostream>
+	"unsortedtype.cpp"
+	"unsortedtype.h"
+	<string>
+	<string.h>
+	<bits/stdc++.h>
+	<list>
+
+1646503844 d:\north south university\4th semester\cse225.1l\lab04\unsortedtype.cpp
+	"UnsortedType.h"
 

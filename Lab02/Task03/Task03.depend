@@ -5,7 +5,13 @@
 
 1646243673 d:\north south university\4th semester\cse225.1l\lab02\task03\dynarr.h
 
-1646243779 source:d:\north south university\4th semester\cse225.1l\lab02\task03\main.cpp
+1647195994 source:d:\north south university\4th semester\cse225.1l\lab02\task03\main.cpp
+	"complex.h"
 	<iostream>
-	"DynArr.h"
+
+1647195994 source:d:\north south university\4th semester\cse225.1l\lab02\task03\complex.cpp
+	"complex.h"
+	<iostream>
+
+1647195994 d:\north south university\4th semester\cse225.1l\lab02\task03\complex.h
 
