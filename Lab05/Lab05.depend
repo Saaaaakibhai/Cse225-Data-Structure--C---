@@ -1,9 +1,13 @@
 # depslib dependency file v1.0
-1584205420 source:d:\north south university\4th semester\cse225.1l\lab05\main.cpp
+1648403289 source:d:\north south university\4th semester\cse225.1l\lab05\main.cpp
 	<iostream>
+	"unsortedtype.cpp"
 
-1646758057 source:d:\north south university\4th semester\cse225.1l\lab05\sortedtype.cpp
-	"sortedtype.h"
+1648403289 d:\north south university\4th semester\cse225.1l\lab05\unsortedtype.cpp
+	"unsortedtype.h"
 
-1646758091 d:\north south university\4th semester\cse225.1l\lab05\sortedtype.h
+1648403289 d:\north south university\4th semester\cse225.1l\lab05\unsortedtype.h
+
+1648403289 source:d:\north south university\4th semester\cse225.1l\lab05\unsortedtype.cpp
+	"unsortedtype.h"
 

@@ -1,123 +1,141 @@
-#include <iostream>
-#include "SortedType.h"
-#include "SortedType.cpp"
-
-#include <bits/stdc++.h>
-
+#include<iostream>
+#include "unsortedtype.cpp"
 using namespace std;
 
-int main()
+class StudentInfo
 {
-    SortedType<int> sortedType;
+    friend bool operator==(StudentInfo s1, StudentInfo s2) {
+        return s1.ID == s2.ID;
+    }
+    friend bool operator!=(StudentInfo s1, StudentInfo s2) {
+        return s1.ID != s2.ID;
+    }
+private:
+    long ID;
+    string name;
+    double cgpa;
 
-    cout << sortedType.LengthIs() << endl;
 
-    cout << "insert 5 items: ";
+public:
 
-    for (int i = 0; i < 5; ++i)
-    {
-        int x;
-        cin >> x;
-        sortedType.InsertItem(x);
+    StudentInfo() {}
+    StudentInfo(long id, string name, double cgpa) {
+        ID = id;
+        this->name = name;
+        this->cgpa = cgpa;
+    }
+    void SetID(long id) {
+        ID = id;
     }
 
-    cout << "display: ";
-    sortedType.display();
-
-    cout << "retrieve item: ";
-    int retrieveItem;
-    cin >> retrieveItem;
-    sortedType.RetrieveItem(retrieveItem);
-
-    int retrieveItem2;
-    cin >> retrieveItem2;
-    sortedType.RetrieveItem(retrieveItem2);
-
-    if (sortedType.IsFull())
-    {
-        cout << "List is full" << endl;
+    void print() {
+        cout << ID << " " << name << " " << cgpa << endl;
     }
-    else
+    ~StudentInfo() {};
+};
+
+
+
+
+int main() {
+    UnsortedType<int> list;
+
+    list.InsertItem(5);
+    list.InsertItem(7);
+    list.InsertItem(6);
+    list.InsertItem(9);
+
+    for (int i = 0; i < list.LengthIs(); i++)
     {
-        cout << "List is not full" << endl;
+        int x; list.GetNextItem(x);
+        cout << x << " ";
+    }
+    cout << endl;
+    list.ResetList();
+
+    cout << "length of the list is : " << list.LengthIs() << endl;
+
+    list.InsertItem(1);
+
+    for (int i = 0; i < list.LengthIs(); i++)
+    {
+        int x; list.GetNextItem(x);
+        cout << x << " ";
+    }
+    cout << endl;
+    list.ResetList();
+
+
+    int x; bool f;
+    x = 4;
+    list.RetrieveItem(x, f);
+    cout << (f ? "Item is found" : "Item is not found") << endl;
+    x = 5;
+    list.RetrieveItem(x, f);
+    cout << (f ? "Item is found" : "Item is not found") << endl;
+    x = 9;
+    list.RetrieveItem(x, f);
+    cout << (f ? "Item is found" : "Item is not found") << endl;
+    x = 10;
+    list.RetrieveItem(x, f);
+    cout << (f ? "Item is found" : "Item is not found") << endl;
+
+    cout << (list.IsFull() ? "List is full" : "List is not full") << endl;
+
+    list.DeleteItem(5);
+
+    cout << (list.IsFull() ? "List is full" : "List is not full") << endl;
+
+    list.DeleteItem(1);
+
+    for (int i = 0; i < list.LengthIs(); i++)
+    {
+        int x; list.GetNextItem(x);
+        cout << x << " ";
+    }
+    cout << endl;
+    list.ResetList();
+
+    list.DeleteItem(6);
+
+    for (int i = 0; i < list.LengthIs(); i++)
+    {
+        int x; list.GetNextItem(x);
+        cout << x << " ";
+    }
+    cout << endl;
+    list.ResetList();
+
+    UnsortedType<StudentInfo> students;
+    students.InsertItem(StudentInfo(15234, "Jon", 2.6));
+    students.InsertItem(StudentInfo(13732, "Tyrion", 3.9));
+    students.InsertItem(StudentInfo(13569, "Sandor", 1.2));
+    students.InsertItem(StudentInfo(15467, "Ramsey", 3.1));
+    students.InsertItem(StudentInfo(16285, "Arya", 3.1));
+
+    students.DeleteItem(StudentInfo(15467, "", 0.0));
+
+    StudentInfo s; bool found;
+    s.SetID(13569);
+    students.RetrieveItem(s, found);
+    if (found)
+    {
+        cout << "Item is found" << endl;
+        s.print();
+        cout << endl;
+    }
+    else {
+        cout << "Item is not found" << endl;
     }
 
-    cout << "delete an item: ";
-    int delItem;
-    cin >> delItem;
 
-    sortedType.DeleteItem(delItem);
-
-    cout << "display: ";
-    sortedType.display();
-
-    if (sortedType.IsFull())
+    for (int i = 0; i < students.LengthIs(); i++)
     {
-        cout << "List is full" << endl;
+        StudentInfo x; students.GetNextItem(x);
+        x.print();
     }
-    else
-    {
-        cout << "List is not full" << endl;
-    }
+    cout << endl;
+    students.ResetList();
 
-    // for (int i = 0; i < 5; ++i) {
-    //     int s, m, h;
-    //     cin >> s >> m >> h;
-    //     timeStamp ts(s, m, h);
-    //     ts.print();
-    // }
-
-    //     cout << "insert 5 time: " << endl;
-
-    //     for (int i = 0; i < 5; i++)
-    //     {
-    //         int s, m, h;
-    //         cin >> s >> m >> h;
-
-    //         ts[i].setTimeStamp(s, m, h);
-    //     }
-
-    //     cout << endl;
-    //     cout << "display: " << endl;
-
-    //     for (int i = 0; i < 5; i++)
-    //     {
-    //         ts[i].print();
-    //     }
-
-    timeStamp ts[5];
-
-    cout << "insert 5 time :" << endl;
-
-    for (int i = 0; i < 5; i++)
-    {
-        int ss, mm, hh;
-        cin >> ss >> mm >> hh;
-        ts[i].setTimeStamp(ss, mm, hh);
-    }
-    for (int i = 0; i < 5; i++)
-    {
-        ts[i].PrintTimeStamp();
-    }
-    int s, m, h;
-    cout << "delete time:" << endl;
-    cin >> s >> m >> h;
-    timeStamp t(s, m, h);
-
-    for (int i = 0; i < 5; i++)
-    {
-        if (ts[i].getSecond() == t.getSecond() && ts[i].getMinute() == t.getMinute() && ts[i].getHour() == t.getHour())
-        {
-            ts[i] = ts[4];
-            break;
-        }
-    }
-
-    cout<<"after delete: "<<endl;
-
-    for (int i = 0; i < 4; i++)
-    {
-        ts[i].PrintTimeStamp();
-    }
     return 0;
 }

@@ -1,72 +1,119 @@
 #include<iostream>
-#include"unsortedtype.cpp"
-#include"unsortedtype.h"
-#include<string>
-#include<string.h>
-#include<bits/stdc++.h>// All header file
-#include<list>
-using namespace std; //User input and output print
-template <class t>  //Gather all info of the .cpp in build in way
-void print(UnsortedType<t> u){
-    int length = u.LengthIs();
-    t value;
-    for(int i =0;i<length; i++){
-        u.GetNextItem(value);
-        cout<< value <<"\t";
+#include "sortedtype.cpp"
+using namespace std;
+
+class TimeStamp {
+    friend bool operator==(TimeStamp a, TimeStamp b) {
+        return a.hours == b.hours && a.minutes == b.minutes && a.seconds == b.seconds;
     }
-    cout<<endl;
+    friend bool operator!=(TimeStamp a, TimeStamp b) {
+        return a.hours != b.hours || a.minutes != b.minutes || a.seconds != b.seconds;
+    }
+    friend bool operator>(TimeStamp a, TimeStamp b) {
+        if (a.hours > b.hours)
+            return true;
+        else if (a.hours == b.hours && a.minutes > b.minutes)
+            return true;
+        else if (a.hours == b.hours && a.minutes == b.minutes && a.seconds > b.seconds)
+            return true;
+        return false;
+    }
+    friend bool operator<(TimeStamp a, TimeStamp b) {
+        if (a.hours < b.hours)
+            return true;
+        else if (a.hours == b.hours && a.minutes < b.minutes)
+            return true;
+        else if (a.hours == b.hours && a.minutes == b.minutes && a.seconds < b.seconds)
+            return true;
+        return false;
+    }
+
+
+private:
+    int seconds, minutes, hours;
+public:
+    TimeStamp() {}
+    TimeStamp(int s, int m, int h) {
+        seconds = s;
+        minutes = m;
+        hours = h;
+    }
+    void print() {
+        cout << seconds << ":" << minutes << ":" << hours;
+    }
+};
+
+
+void printList(SortedType<int> list) {
+    for (int i = 0; i < list.LengthIs(); i++)
+    {
+        int item;
+        list.GetNextItem(item);
+        cout << item << " ";
+    }
+    cout << endl;
+    list.ResetList();
 }
-template <class t>
-void Retrieve (UnsortedType<t> u, t value){
 
-    bool b;
-
-    u.RetrieveItem(value, b);
-    if(b){
-        cout<< "Item found"<<endl;
+void printList(SortedType<TimeStamp> list) {
+    for (int i = 0; i < list.LengthIs(); i++)
+    {
+        TimeStamp item;
+        list.GetNextItem(item);
+        item.print();
+        cout << endl;
     }
-    else {
-        cout<< "Item not found"<<endl;
-    }
+    cout << endl;
+    list.ResetList();
 }
-//template <class t>
 
-void checkFull(bool b){
-    if(b){
-        cout<<"List is full"<<endl;
-    }
+int main() {
+
+    SortedType<int> list;
+
+    cout << list.LengthIs() << endl;
+
+    list.InsertItem(5);
+    list.InsertItem(7);
+    list.InsertItem(4);
+    list.InsertItem(2);
+    list.InsertItem(1);
+
+    printList(list);
+
+    int item = 6;
+    bool found = false;
+    list.RetrieveItem(item, found);
+    if (found)
+        cout << "item found" << endl;
     else
-        cout<<"List is not full"<<endl;
-}
-int main()
-{
-  UnsortedType<int> t1;
-  t1.InsertItem(5);
-  t1.InsertItem(7);
-  t1.InsertItem(6);
-  t1.InsertItem(9);
-  print(t1);
+        cout << "item not found" << endl;
 
-  cout<<t1.LengthIs();
-  cout<<endl;
+    item = 5;
+    list.RetrieveItem(item, found);
+    if (found)
+        cout << "item is found" << endl;
+    else
+        cout << "item is not found" << endl;
 
-  t1.InsertItem(1);
+    cout << ((list.IsFull()) ? "List is full" : "List is not full") << endl;
 
-  print(t1);
+    list.DeleteItem(1);
 
-  Retrieve(t1,4);
-  Retrieve(t1,5);
-  Retrieve(t1,9);
-  Retrieve(t1,10);
+    printList(list);
 
-  checkFull(t1.IsFull());
-  t1.DeleteItem(5);
-  checkFull(t1.IsFull());
-  t1.DeleteItem(1);
-  print(t1);
+    cout << ((list.IsFull()) ? "List is full" : "List is not full") << endl;
 
-  t1.DeleteItem(6);
-  cout<<"List after delete 6:";
-  print(t1);
+    SortedType<TimeStamp> timeList;
+    timeList.InsertItem(TimeStamp(15, 34, 23));
+    timeList.InsertItem(TimeStamp(13, 13, 02));
+    timeList.InsertItem(TimeStamp(43, 45, 12));
+    timeList.InsertItem(TimeStamp(25, 36, 17));
+    timeList.InsertItem(TimeStamp(52, 02, 20));
 
+    timeList.DeleteItem(TimeStamp(25, 36, 17));
+
+    printList(timeList);
+
+    return 0;
 }
