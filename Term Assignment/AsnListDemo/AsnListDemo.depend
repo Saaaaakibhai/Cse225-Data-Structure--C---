@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1651843591 source:c:\users\edu\desktop\asnlistdemo\list.cpp
+	<iostream>
+	"List.h"
+
+1651843643 source:c:\users\edu\desktop\asnlistdemo\main.cpp
+	"List.h"
+	<iostream>
+
+1651843605 c:\users\edu\desktop\asnlistdemo\list.h
+
+1651843592 source:c:\users\user-gt\downloads\qno1\asnlistdemo\list.cpp
+	<iostream>
+	"List.h"
+
+1651843606 c:\users\user-gt\downloads\qno1\asnlistdemo\list.h
+
+1651843644 source:c:\users\user-gt\downloads\qno1\asnlistdemo\main.cpp
+	"List.h"
+	<iostream>
+
+1651855422 source:d:\north south university\4th semester\cse225.1\term assignment\asnlistdemo\list.cpp
+	<iostream>
+	"List.h"
+
+1651854870 d:\north south university\4th semester\cse225.1\term assignment\asnlistdemo\list.h
+
+1651854868 source:d:\north south university\4th semester\cse225.1\term assignment\asnlistdemo\main.cpp
+	"List.h"
+	<iostream>
+
